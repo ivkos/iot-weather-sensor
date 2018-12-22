@@ -1,0 +1,12 @@
+[Unit]
+Description=Weather Sensor
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/node /opt/iot-weather-sensor/index.js
+User=nobody
+#Group=nobody
+
+[Install]
+WantedBy=multi-user.target
