@@ -12,8 +12,10 @@ nano config.json
 ```
 
 ## Install
-Install the dependencies:
-`npm install`
+### Install the dependencies:
+```
+npm install
+```
 
 ### Install as a systemd service
 Copy the systemd service file:
