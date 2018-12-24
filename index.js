@@ -58,11 +58,11 @@ const pushData = () => {
 			mqttClient.publish(`${MQTT_TOPIC_PREFIX}/humidity`, String(data.humidity), { retain: true });
 
 			if (data.temperature_C >= 20) {
-				mqttClient.publish(`${MQTT_PASSWORD}/heat-index`, String(Feels.heatIndex(data.temperature_C, data.humidity)), { retain: true });
+				mqttClient.publish(`${MQTT_TOPIC_PREFIX}/heat-index`, String(Feels.heatIndex(data.temperature_C, data.humidity)), { retain: true });
 			}
 
-			mqttClient.publish(`${MQTT_PASSWORD}/humidex`, String(Feels.humidex(data.temperature_C, data.humidity)), { retain: true });
-			mqttClient.publish(`${MQTT_PASSWORD}/dew-point`, String(Feels.getDP(data.temperature_C, data.humidity)), { retain: true });
+			mqttClient.publish(`${MQTT_TOPIC_PREFIX}/humidex`, String(Feels.humidex(data.temperature_C, data.humidity)), { retain: true });
+			mqttClient.publish(`${MQTT_TOPIC_PREFIX}/dew-point`, String(Feels.getDP(data.temperature_C, data.humidity)), { retain: true });
 		})
 		.catch((err) => {
 			console.error('BME280 read error', err);
